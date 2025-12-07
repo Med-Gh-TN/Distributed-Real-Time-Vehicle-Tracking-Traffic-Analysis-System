@@ -165,4 +165,4 @@ The Gateway exposes the following REST endpoints on `localhost:8080`:
 <div align="center">
   <sub>Built for the Future of Smart Cities. © 2025 TrafficPulse Inc.</sub>
 </div>
-```
+
