@@ -1,4 +1,3 @@
-```
 # 🚦 Distributed Real-Time Vehicle Tracking & Traffic Analysis System
 
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -36,7 +35,7 @@ graph TD
     Server -- JMS --> MQ[ActiveMQ Alert System]
     Server -- CORBA IDL --> Bridge[Legacy Bridge]
     Bridge -- IIOP --> Hardware[Python/C++ Hardware Sim]
-```
+
 
 1.  **Client Layer:** HTML5/JS Dashboards for visualization.
 2.  **Gateway Layer:** A Multi-threaded HTTP Server translating REST to RMI.
