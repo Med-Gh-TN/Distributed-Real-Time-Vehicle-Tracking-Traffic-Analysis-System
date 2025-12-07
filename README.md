@@ -101,7 +101,7 @@ Because this system is distributed, components depend on each other. You **must*
 ### Step 1: The Legacy Hardware (CORBA Server)
 This simulates the physical traffic lights waiting for commands.
 ```bash
-python hardware_server.py
+java -cp out/production/TrafficControlSystem com.traffic.core.bridge.CorbaHardwareServer
 ```
 > **Check:** Wait for `>>> [PYTHON] 'hardware.ior' written.`
 
