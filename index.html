@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrafficPulse AI | Intelligent Urban Flow</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal for Animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Glassmorphism & Utilities -->
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+<!-- Background Animated Blobs -->
+<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[100px] animate-blob"></div>
+    <div class="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-600/10 blur-[100px] animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] rounded-full bg-cyan-600/10 blur-[100px] animate-blob animation-delay-4000"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center glass-nav md:rounded-b-2xl">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <span class="font-bold text-xl tracking-tight font-sans">TrafficPulse<span class="text-cyan-400">.ai</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400 font-mono">
+            <a href="#technology" class="hover:text-white transition-colors">Architecture</a>
+            <a href="#solutions" class="hover:text-white transition-colors">Solutions</a>
+            <a href="#founders" class="hover:text-white transition-colors">Founders</a>
+        </div>
+        <a href="#contact" class="px-5 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-semibold transition-all backdrop-blur-sm text-white">
+            Get Access
+        </a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-20">
+    <div class="reveal-bottom max-w-5xl mx-auto">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-900/10 text-cyan-300 text-xs font-semibold mb-8 font-mono">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                </span>
+            <span>System Status: ONLINE // Monitoring 10,000+ Nodes</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+            Stop Traffic <br>
+            <span class="text-gradient">Before It Stops You.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            The first distributed OS for smart cities. We combine
+            <span class="text-white font-mono">Java RMI</span> speed,
+            <span class="text-white font-mono">CORBA</span> interoperability, and
+            <span class="text-white font-mono">AI</span> routing to eliminate urban paralysis.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+            <a href="#solutions" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-lg transition-all shadow-[0_0_20px_rgba(8,145,178,0.4)] hover:shadow-[0_0_30px_rgba(8,145,178,0.6)]">
+                Explore Solutions
+            </a>
+            <a href="#technology" class="px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-lg transition-all backdrop-blur-md">
+                View Architecture
+            </a>
+        </div>
+    </div>
+
+    <!-- Animated Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+</header>
+
+<!-- The Problem (Data Stats) -->
+<section class="py-20 border-y border-white/5 bg-black/40">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-12 font-mono">The Cost of Inefficiency</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="reveal-bottom">
+                <h3 class="text-5xl font-bold text-white mb-2">$88 Bn</h3>
+                <p class="text-slate-500">Lost annually in fuel & productivity</p>
+            </div>
+            <div class="reveal-bottom delay-100">
+                <h3 class="text-5xl font-bold text-red-500 mb-2">CRITICAL</h3>
+                <p class="text-slate-500">Ambulance delays in gridlock</p>
+            </div>
+            <div class="reveal-bottom delay-200">
+                <h3 class="text-5xl font-bold text-white mb-2">42%</h3>
+                <p class="text-slate-500">Increase in urban CO2 emissions</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Stack -->
+<section id="technology" class="py-32 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal-bottom">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Engineered for Reality.</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Most smart cities fail because they ignore legacy infrastructure. We don't. Our Hybrid Architecture bridges the gap between 1990s hardware and 2025 AI.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-8 rounded-3xl reveal-left group">
+                <div class="h-12 w-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">The Bridge (CORBA)</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    We translate modern AI commands into legacy C++ signals using our proprietary CORBA bridge. We control 30-year-old traffic lights as easily as modern IoT devices.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card p-8 rounded-3xl reveal-bottom group border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.1)]">
+                <div class="h-12 w-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">The Brain (Java RMI)</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Pure speed. Our core processing layer uses Java Remote Method Invocation to handle route optimization and telemetry ingestion with near-zero latency overhead.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-8 rounded-3xl reveal-right group">
+                <div class="h-12 w-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">The Eye (Telemetry)</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Real-time ingestion of vehicle GPS data via REST gateways. We analyze swarms of traffic to predict jams before they form.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions / Pricing -->
+<section id="solutions" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 reveal-bottom">
+            <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest">Target Sectors</span>
+            <h2 class="text-4xl font-bold mt-2">Tailored Integration Plans</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- B2B Plan -->
+            <div class="glass-card p-10 rounded-[2rem] relative overflow-hidden reveal-left">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">B2B: Enterprise Fleet</h3>
+                <p class="text-slate-400 mb-8 h-12">For Logistics Companies & Delivery Networks</p>
+
+                <ul class="space-y-4 mb-10 text-slate-300">
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Predictive Route Optimization</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Fuel Consumption Analytics</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Driver Behavior Monitoring</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:med56524755@gmail.com?subject=B2B%20Partnership%20Inquiry" class="block w-full text-center py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold transition-all hover:scale-[1.02]">
+                    Contact Sales (B2B) &rarr;
+                </a>
+            </div>
+
+            <!-- B2G Plan -->
+            <div class="glass-card p-10 rounded-[2rem] relative overflow-hidden border-cyan-500/30 reveal-right">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg class="w-32 h-32 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">B2G: Government & City</h3>
+                <p class="text-slate-400 mb-8 h-12">For Municipalities & Emergency Services</p>
+
+                <ul class="space-y-4 mb-10 text-slate-300">
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Legacy Hardware Integration (CORBA)</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Emergency "Green Wave" Protocols</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>City-Wide Traffic Dashboard</span>
+                    </li>
+                </ul>
+
+                <a href="mailto:imenbouchelliga2@gmail.com?subject=Government%20Implementation%20Inquiry" class="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold transition-all shadow-lg shadow-cyan-900/50 hover:scale-[1.02]">
+                    Contact Government Relations &rarr;
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Founders Section -->
+<section id="founders" class="py-20 bg-black/50 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-12">Visionaries Behind the Code</h2>
+        <div class="flex flex-col md:flex-row justify-center gap-8">
+
+            <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 text-left reveal-left">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-xl font-bold border border-white/10">
+                    MG
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white">Mouhamed Gharsallah</h4>
+                    <p class="text-cyan-400 text-sm font-mono">Co-Founder & Lead Architect</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 text-left reveal-right">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-xl font-bold border border-white/10">
+                    IB
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white">Imen BOUCHELLIGA</h4>
+                    <p class="text-cyan-400 text-sm font-mono">Co-Founder & Operations</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="py-12 text-center text-slate-600 text-sm border-t border-white/5 bg-black">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+            <span class="font-bold text-white text-lg">TrafficPulse<span class="text-cyan-500">.ai</span></span>
+        </div>
+        <div class="flex space-x-6">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            <a href="mailto:med56524755@gmail.com" class="hover:text-white transition-colors">Contact Support</a>
+        </div>
+        <div class="mt-4 md:mt-0">
+            <p>&copy; 2025 TrafficPulse Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Initialization Scripts -->
+<script>
+    // Scroll Reveal Configuration
+    ScrollReveal().reveal('.reveal-bottom', { delay: 200, distance: '50px', origin: 'bottom', opacity: 0, duration: 1000, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+    ScrollReveal().reveal('.reveal-left', { delay: 300, distance: '50px', origin: 'left', opacity: 0, duration: 1000, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+    ScrollReveal().reveal('.reveal-right', { delay: 300, distance: '50px', origin: 'right', opacity: 0, duration: 1000, easing: 'cubic-bezier(0.5, 0, 0, 1)' });
+
+    // Smooth Scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
