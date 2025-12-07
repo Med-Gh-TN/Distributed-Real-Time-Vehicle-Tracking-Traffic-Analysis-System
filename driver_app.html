@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Driver Companion App - Tactical Console</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+<header class="glass-nav p-4 flex justify-between items-center fixed top-0 w-full z-20">
+    <h1 class="text-xl text-cyan-400 font-bold tracking-widest console-font">DRIVER CONSOLE</h1>
+    <div id="connection-status" class="px-3 py-1 rounded-full text-xs font-semibold console-font transition-colors bg-red-600 text-white">OFFLINE</div>
+</header>
+
+<div id="map" class="flex-grow w-full mt-16 z-0"></div>
+
+<div id="dashboard" class="glass-card p-4 md:p-6 fixed bottom-0 w-full z-10 rounded-t-xl">
+    <div id="controls-setup">
+        <label class="text-sm text-gray-400 block mb-2">Destination Target:</label>
+        <select id="destination-select" class="bg-gray-800 text-white p-3 rounded-lg w-full mb-4">
+            <option value="Sfax">Sfax</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Hammamet">Hammamet</option>
+            <option value="Gabes">Gabes</option>
+            <option value="Kairouan">Kairouan</option>
+        </select>
+        <button id="btn-start" onclick="startMission()" class="w-full bg-cyan-600 hover:bg-cyan-700 text-lg p-3 rounded-lg font-bold transition-colors">INITIATE TRIP</button>
+    </div>
+
+    <div id="controls-active" style="display:none;">
+        <div class="stats-row flex justify-between items-end mb-4">
+            <div class="text-left">
+                <div class="stat-val text-5xl font-extrabold text-white" id="speed-display">0</div>
+                <div class="stat-label text-md text-gray-400 console-font">CURRENT VELOCITY (km/h)</div>
+            </div>
+            <div class="text-right">
+                <div class="text-2xl font-bold" id="dist-display">--</div>
+                <div class="stat-label text-sm text-cyan-400 console-font">NEXT WAYPOINT</div>
+            </div>
+        </div>
+        <button id="btn-stop" onclick="stopMission()" class="w-full bg-red-600 hover:bg-red-700 text-lg p-3 rounded-lg font-bold transition-colors">TERMINATE TRIP</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="driver_app.js"></script>
+</body>
+</html>

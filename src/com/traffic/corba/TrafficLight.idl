@@ -1,0 +1,6 @@
+module TrafficLegacy {
+    interface TrafficController {
+        // 0 = RED, 1 = GREEN, 2 = ORANGE
+        string setSignalState(in string junctionId, in long state);
+    };
+};

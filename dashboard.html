@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Command Center - Tactical Console</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Specific layout styles for Command Center */
+        .log-panel { height: 250px; overflow-y: scroll; border: 1px solid #333; background: #000; }
+        .control-panel { max-width: 320px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex">
+
+<div id="layout" class="flex flex-grow">
+    <div id="sidebar" class="bg-gray-900/90 p-4 md:p-6 flex flex-col glass-card control-panel sticky top-0 h-screen overflow-y-auto z-10">
+        <h1 class="text-xl text-cyan-400 font-bold tracking-wider console-font mb-4 border-b border-gray-700 pb-2">TRAFFIC COMMAND</h1>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="glass-card p-3 rounded-lg text-center">
+                <div class="text-3xl font-extrabold text-white" id="active-count">0</div>
+                <div class="text-xs text-gray-400 console-font">ACTIVE VEHICLES</div>
+            </div>
+            <div class="glass-card p-3 rounded-lg text-center">
+                <div class="text-3xl font-extrabold text-red-500" id="max-speed">0</div>
+                <div class="text-xs text-gray-400 console-font">MAX VELOCITY (km/h)</div>
+            </div>
+        </div>
+
+        <div class="text-sm text-gray-400 mb-2 console-font">LIVE SPEED DISTRIBUTION</div>
+        <div class="chart-container h-48 mb-6">
+            <canvas id="speedChart"></canvas>
+        </div>
+
+        <div class="text-sm text-gray-400 mb-2 console-font">REAL-TIME INCIDENT FEED</div>
+        <div id="log-panel" class="log-panel p-2 rounded-lg text-gray-500 console-font flex flex-col-reverse">
+        </div>
+    </div>
+
+    <div id="map" class="flex-grow h-screen z-0"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

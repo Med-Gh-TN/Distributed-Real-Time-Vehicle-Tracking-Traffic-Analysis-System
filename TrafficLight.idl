@@ -1,0 +1,5 @@
+module TrafficLegacy {
+    interface TrafficController {
+        string setSignalState(in string junctionId, in long state);
+    };
+};
