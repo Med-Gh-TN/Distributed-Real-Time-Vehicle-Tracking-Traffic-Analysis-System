@@ -27,7 +27,7 @@
 
 This project implements a multi-layered distributed architecture:
 
-
+```mermaid
 graph TD
     Client[Web Dashboard & Driver App] -- HTTP/REST --> Gateway[REST API Gateway]
     Gateway -- Java RMI --> Server[Core Traffic Service]
