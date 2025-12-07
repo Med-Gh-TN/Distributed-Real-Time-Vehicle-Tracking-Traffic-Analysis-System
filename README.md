@@ -27,7 +27,7 @@
 
 This project implements a multi-layered distributed architecture:
 
-```mermaid
+
 graph TD
     Client[Web Dashboard & Driver App] -- HTTP/REST --> Gateway[REST API Gateway]
     Gateway -- Java RMI --> Server[Core Traffic Service]
@@ -35,7 +35,9 @@ graph TD
     Server -- JMS --> MQ[ActiveMQ Alert System]
     Server -- CORBA IDL --> Bridge[Legacy Bridge]
     Bridge -- IIOP --> Hardware[Python/C++ Hardware Sim]
+```
 
+<br>
 
 1.  **Client Layer:** HTML5/JS Dashboards for visualization.
 2.  **Gateway Layer:** A Multi-threaded HTTP Server translating REST to RMI.
@@ -165,4 +167,4 @@ The Gateway exposes the following REST endpoints on `localhost:8080`:
 <div align="center">
   <sub>Built for the Future of Smart Cities. © 2025 TrafficPulse Inc.</sub>
 </div>
-
+```
